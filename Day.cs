@@ -6,18 +6,16 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand_3DayStarter
 {
-    class Day
+    public class Day
     {
         Random random = new Random();
         public Weather weather;
-        public List<Customer> customers;
+        public Customer customer;
         public Day()
         {
-            weather = new Weather(random.Next(55, 96), new List<string> { "Sunny", "Rainy", "Overcast", "Hazy" });
+            weather = new Weather();
+            customer = new Customer();
         }
-        public void PickWeather()
-        {
-            Console.WriteLine(weather.temp + " " + weather.conditions[random.Next(0, 4)]);
-        }
+        
     }
 }

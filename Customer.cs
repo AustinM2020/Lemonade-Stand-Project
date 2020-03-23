@@ -6,19 +6,21 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand_3DayStarter
 {
-    class Customer
+    public class Customer
     {
+        Random random = new Random();
+        public bool willBuy;
         public string name;
         List<string> names;
-        public Customer(string name)
+        public Customer()
         {
             this.name = name;
-            names.Add("Mike");
-            names.Add("Finn");
-            names.Add("Sean");
-            names.Add("Jamie");
-            names.Add("Katie");
-            names.Add("Aubrun");       
+            names = new List<string>() { "Mike", "Finn", "Sean", "Jamie", "Katie", "Auburn", "Charles", "King", 
+                "Christine", "Isaiah", "Chris", "Jack", "Cj", "Frank", "Aaron", "Lynda", "Jess"  }; 
+        }
+        public void GenerateCustomer()
+        {
+                Console.WriteLine(names[random.Next(0,5)]);
         }
     }
 }
