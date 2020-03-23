@@ -11,12 +11,14 @@ namespace LemonadeStand_3DayStarter
         Random random = new Random();
         Day day;
         Player player;
+        Store store;
         public int chance;
         public int num;
         public Game()
         {
             day = new Day();
             player = new Player();
+            store = new Store();
         }
         //Sunny>Overcast>Hazy>Rainy
         public void TempResponse()
@@ -57,7 +59,7 @@ namespace LemonadeStand_3DayStarter
             }
             else
             {
-                day.customer.willBuy = false;
+                day.customer.willBuy= false;
             }
         }
         public void WeatherResponse()
@@ -137,5 +139,9 @@ namespace LemonadeStand_3DayStarter
                 }
             }
         }
+        public void Mehtod()
+        {
+            
+        }  
     }
 }

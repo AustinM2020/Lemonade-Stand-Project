@@ -22,9 +22,14 @@ namespace LemonadeStand_3DayStarter
             wallet = new Wallet();
             recipe = new Recipe();
             pitcher = new Pitcher();
+            inventory = new Inventory();
         }
 
         // member methods (CAN DO)
-        
+
+        public void MakePitcher(Inventory inventory)
+        {
+            
+        }
     }
 }

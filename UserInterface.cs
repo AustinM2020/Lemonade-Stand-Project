@@ -23,5 +23,10 @@ namespace LemonadeStand_3DayStarter
 
             return quantityOfItem;
         }
+        public static int ChooseRecipeRatio(string ingredient)
+        {
+            Console.WriteLine("How many " + ingredient + " would you like in your recipe?");
+            Console.WriteLine("Please enter a positive integer");
+        }
     }
 }
