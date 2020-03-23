@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand_3DayStarter
 {
-    class Wallet
+    public class Wallet
     {
         private double money;
 
@@ -15,6 +15,10 @@ namespace LemonadeStand_3DayStarter
             get
             {
                 return money;
+            }
+            set
+            {
+                money += value;
             }
         }
 
