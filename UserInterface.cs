@@ -25,8 +25,26 @@ namespace LemonadeStand_3DayStarter
         }
         public static int ChooseRecipeRatio(string ingredient)
         {
-            Console.WriteLine("How many " + ingredient + " would you like in your recipe?");
-            Console.WriteLine("Please enter a positive integer");
+            bool userInputIsAnInteger = false;
+            int quantity = 0;
+            while (!userInputIsAnInteger)
+            {
+                Console.WriteLine("How many " + ingredient + " would you like in your recipe?");
+                Console.WriteLine("Please enter a positive integer");
+
+                userInputIsAnInteger = Int32.TryParse(Console.ReadLine(), out quantity);
+            }
+            return quantity;
+        }
+        public static double ChoosePricePerCup()
+        {
+            double maxPrice = .50;
+            double price;
+            {
+                Console.WriteLine("What Price would you like each cup to be? The max prie is " + maxPrice);
+                price = Convert.ToDouble(Console.ReadLine());
+            }
+            return price;
         }
     }
 }

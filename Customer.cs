@@ -13,17 +13,15 @@ namespace LemonadeStand_3DayStarter
         
         public string name;
         List<string> names;
-        public Customer(string name)
+        public Customer()
         {
-            this.name = name;
             names = new List<string>() { "Mike", "Finn", "Sean", "Jamie", "Katie", "Auburn", "Charles", "King", 
                 "Christine", "Isaiah", "Chris", "Jack", "Cj", "Frank", "Aaron", "Lynda", "Jess"  };
-            
+            name = names[random.Next(0, 5)];
         }
 
         public string GenerateCustomer()
         {
-            name = names[random.Next(0, 5)];
             return name;
         }
         public void BuyLemonade(Recipe recipe, Wallet wallet)

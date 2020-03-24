@@ -47,5 +47,10 @@ namespace LemonadeStand_3DayStarter
             int numberOfCups = UserInterface.ChooseRecipeRatio("cups");
             recipe.amountOfCups = numberOfCups;
         }
+        public double ChangePricePerCup()
+        {
+            recipe.pricePerCup = UserInterface.ChoosePricePerCup();
+            return recipe.pricePerCup;
+        }
     }
 }

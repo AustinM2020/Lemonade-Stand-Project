@@ -21,9 +21,27 @@ namespace LemonadeStand_3DayStarter
             store = new Store();
         }
         //Sunny>Overcast>Hazy>Rainy
+        public void RunGame()
+        {
+            for(int i = 0; i <= day.numberOfDays; i++)
+            {
+                Day day = new Day();
+                day.weather.PickWeather();
+                store.SellLemons(new Player());
+                store.SellSugarCubes(new Player());
+                store.SellIceCubes(new Player());
+                store.SellCups(new Player());
+                player.PickLemons();
+                player.PickSugarCubes();
+                player.PickIceCubes();
+                player.PickCups();
+                player.ChangePricePerCup();
+                CreateCustomers();
+            }
+        }
         public void TempResponse()
         {
-            day.weather.PickWeather();
+            
             chance = 0;
             
             if(day.weather.temp > 90)
@@ -142,7 +160,7 @@ namespace LemonadeStand_3DayStarter
         public void MakePitcher(Inventory inventory, Recipe recipe)
         {
             while (player.recipe.cupsPerPitcher == 0 && inventory.lemons.Count > recipe.amountOfLemons && inventory.sugarCubes.Count > recipe.amountOfSugarCubes &&
-            inventory.iceCubes.Count > recipe.amountOfIceCubes && inventory.cups.Count > recipe.amountOfCups && day.hoursInDay > 0)
+            inventory.iceCubes.Count > recipe.amountOfIceCubes && inventory.cups.Count > recipe.amountOfCups)
             {
                 inventory.RemoveLemonsFromInventory(new Recipe());
                 inventory.RemoveSugarCubesFromInventory(new Recipe());
@@ -157,35 +175,40 @@ namespace LemonadeStand_3DayStarter
             {
                 for(int i = 0; i < random.Next(120, 170); i++)
                 {
-                    Customer customer = new Customer(day.customer.GenerateCustomer());
+                    Customer customer = new Customer();
+                    CustomerResponse();
                 }
             }
             else if(day.weather.temp > 80)
             {
                 for (int i = 0; i < random.Next(100, 150); i++)
                 {
-                    Customer customer = new Customer(day.customer.GenerateCustomer());
+                    Customer customer = new Customer();
+                    CustomerResponse();
                 }
             }
             else if(day.weather.temp > 70)
             {
                 for (int i = 0; i < random.Next(80, 120); i++)
                 {
-                    Customer customer = new Customer(day.customer.GenerateCustomer());
+                    Customer customer = new Customer();
+                    CustomerResponse();
                 }
             }
             else if(day.weather.temp > 60)
             {
                 for(int i = 0; i < random.Next(60, 100); i++)
                 {
-                    Customer customer = new Customer(day.customer.GenerateCustomer());
+                    Customer customer = new Customer();
+                    CustomerResponse();
                 }
             }
             else if(day.weather.temp > 55)
             {
                 for(int i = 0; i < random.Next(50, 80); i++)
                 {
-                    Customer customer = new Customer(day.customer.GenerateCustomer());
+                    Customer customer = new Customer();
+                    CustomerResponse();
                 }
             }
         }

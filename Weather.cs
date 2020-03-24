@@ -13,9 +13,9 @@ namespace LemonadeStand_3DayStarter
         public string condition;
         List<string> forcasts;    
         public Weather()
-        {
+        {          
             forcasts = new List<string>() { "Sunny", "Rainy", "Overcast", "Hazy" };
-            condition = forcasts[random.Next(0, 4)];
+            this.condition = forcasts[random.Next(0, 4)];
         }
         public void PickWeather()
         {

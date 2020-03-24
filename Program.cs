@@ -10,8 +10,8 @@ namespace LemonadeStand_3DayStarter
     {
         static void Main(string[] args)
         {
-            Store day = new Store();
-            day.SellLemons(new Player());
+            Game day = new Game();
+            day.RunGame();
             Console.ReadLine();
         }
     }
