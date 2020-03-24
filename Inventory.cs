@@ -61,39 +61,39 @@ namespace LemonadeStand_3DayStarter
                 cups.Add(cup);
             }
         }
-        public void RemoveLemonsFromInventory()
+        public void RemoveLemonsFromInventory(Recipe recipe)
         {
-            for (int i = 0; i < numberOfLemons; i++)
+            for (int i = 0; i < recipe.amountOfLemons; i++)
             {
                 Lemon lemon = new Lemon();
-                lemons.Add(lemon);
+                lemons.Remove(lemon);
             }
         }
 
-        public void RemoveSugarCubesFromInventory()
+        public void RemoveSugarCubesFromInventory(Recipe recipe)
         {
-            for (int i = 0; i < numberOfSugarCubes; i++)
+            for (int i = 0; i < recipe.amountOfSugarCubes; i++)
             {
                 SugarCube sugarCube = new SugarCube();
-                sugarCubes.Add(sugarCube);
+                sugarCubes.Remove(sugarCube);
             }
         }
 
-        public void RemoveIceCubesFromInventory()
+        public void RemoveIceCubesFromInventory(Recipe recipe)
         {
-            for (int i = 0; i < numberOfIceCubes; i++)
+            for (int i = 0; i < recipe.amountOfIceCubes; i++)
             {
                 IceCube iceCube = new IceCube();
-                iceCubes.Add(iceCube);
+                iceCubes.Remove(iceCube);
             }
         }
 
-        public void RemoveCupsFromInventory()
+        public void RemoveCupsFromInventory(Recipe recipe)
         {
-            for (int i = 0; i < numberOfCups; i++)
+            for (int i = 0; i < recipe.amountOfCups; i++)
             {
                 Cup cup = new Cup();
-                cups.Add(cup);
+                cups.Remove(cup);
             }
         }
     }

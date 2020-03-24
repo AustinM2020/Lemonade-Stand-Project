@@ -139,9 +139,55 @@ namespace LemonadeStand_3DayStarter
                 }
             }
         }
-        public void Mehtod()
+        public void MakePitcher(Inventory inventory, Recipe recipe)
         {
-            
+            while (player.recipe.cupsPerPitcher == 0 && inventory.lemons.Count > recipe.amountOfLemons && inventory.sugarCubes.Count > recipe.amountOfSugarCubes &&
+            inventory.iceCubes.Count > recipe.amountOfIceCubes && inventory.cups.Count > recipe.amountOfCups && day.hoursInDay > 0)
+            {
+                inventory.RemoveLemonsFromInventory(new Recipe());
+                inventory.RemoveSugarCubesFromInventory(new Recipe());
+                inventory.RemoveIceCubesFromInventory(new Recipe());
+                inventory.RemoveCupsFromInventory(new Recipe());
+            }
+           
         }  
+        public void CreateCustomers()
+        {
+            if(day.weather.temp > 90)
+            {
+                for(int i = 0; i < random.Next(120, 170); i++)
+                {
+                    Customer customer = new Customer(day.customer.GenerateCustomer());
+                }
+            }
+            else if(day.weather.temp > 80)
+            {
+                for (int i = 0; i < random.Next(100, 150); i++)
+                {
+                    Customer customer = new Customer(day.customer.GenerateCustomer());
+                }
+            }
+            else if(day.weather.temp > 70)
+            {
+                for (int i = 0; i < random.Next(80, 120); i++)
+                {
+                    Customer customer = new Customer(day.customer.GenerateCustomer());
+                }
+            }
+            else if(day.weather.temp > 60)
+            {
+                for(int i = 0; i < random.Next(60, 100); i++)
+                {
+                    Customer customer = new Customer(day.customer.GenerateCustomer());
+                }
+            }
+            else if(day.weather.temp > 55)
+            {
+                for(int i = 0; i < random.Next(50, 80); i++)
+                {
+                    Customer customer = new Customer(day.customer.GenerateCustomer());
+                }
+            }
+        }
     }
 }

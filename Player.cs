@@ -27,9 +27,25 @@ namespace LemonadeStand_3DayStarter
 
         // member methods (CAN DO)
 
-        public void MakePitcher(Inventory inventory)
+        public void PickLemons()
         {
-            
+            int numberOfLemons = UserInterface.ChooseRecipeRatio("lemons");
+            recipe.amountOfLemons = numberOfLemons;
+        }
+        public void PickSugarCubes()
+        {
+            int numberOfSugarCubes = UserInterface.ChooseRecipeRatio("sugar cubes");
+            recipe.amountOfSugarCubes = numberOfSugarCubes;
+        }
+        public void PickIceCubes()
+        {
+            int numberOfIceCubes = UserInterface.ChooseRecipeRatio("ice cubes");
+            recipe.amountOfSugarCubes = numberOfIceCubes;
+        }
+        public void PickCups()
+        {
+            int numberOfCups = UserInterface.ChooseRecipeRatio("cups");
+            recipe.amountOfCups = numberOfCups;
         }
     }
 }

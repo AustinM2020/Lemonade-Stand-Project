@@ -18,7 +18,7 @@ namespace LemonadeStand_3DayStarter
             }
             set
             {
-                money += value;
+                money = value;
             }
         }
 
