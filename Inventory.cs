@@ -90,7 +90,7 @@ namespace LemonadeStand_3DayStarter
 
         public void RemoveCupsFromInventory(Recipe recipe)
         {
-            for (int i = 0; i < recipe.amountOfCups; i++)
+            for (int i = 0; i < recipe.cupsPerPitcher; i++)
             {
                 Cup cup = new Cup();
                 cups.Remove(cup);

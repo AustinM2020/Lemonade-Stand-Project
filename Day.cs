@@ -9,14 +9,12 @@ namespace LemonadeStand_3DayStarter
     public class Day
     {
         Random random = new Random();
-        public int numberOfDays;
         public Weather weather;
         public Customer customer;
         public Day()
         {
             weather = new Weather();
             customer = new Customer();
-            numberOfDays = 7;
         }
         
     }

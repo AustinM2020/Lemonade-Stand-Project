@@ -11,7 +11,6 @@ namespace LemonadeStand_3DayStarter
         public int amountOfLemons;
         public int amountOfSugarCubes;
         public int amountOfIceCubes;
-        public int amountOfCups;
         public double pricePerCup;
         public int cupsPerPitcher;
         

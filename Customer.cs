@@ -24,13 +24,7 @@ namespace LemonadeStand_3DayStarter
         {
             return name;
         }
-        public void BuyLemonade(Recipe recipe, Wallet wallet)
-        {
-            if(willBuy == true)
-            {
-                wallet.Money += recipe.pricePerCup;
-            }
-        }
+        
         
     }
 }

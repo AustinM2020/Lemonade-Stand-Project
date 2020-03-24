@@ -13,28 +13,28 @@ namespace LemonadeStand_3DayStarter
         Player player;
         Store store;
         public int chance;
+        int numberOfDays = 7;
         public int num;
         public Game()
         {
-            day = new Day();
             player = new Player();
             store = new Store();
         }
         //Sunny>Overcast>Hazy>Rainy
         public void RunGame()
         {
-            for(int i = 0; i <= day.numberOfDays; i++)
+            for(int i = 0; i <= numberOfDays; i++)
             {
-                Day day = new Day();
+                day = new Day();
+                player.wallet.DisplayWallet();
                 day.weather.PickWeather();
-                store.SellLemons(new Player());
-                store.SellSugarCubes(new Player());
-                store.SellIceCubes(new Player());
-                store.SellCups(new Player());
+                store.SellLemons(player);
+                store.SellSugarCubes(player);
+                store.SellIceCubes(player);
+                store.SellCups(player);
                 player.PickLemons();
                 player.PickSugarCubes();
                 player.PickIceCubes();
-                player.PickCups();
                 player.ChangePricePerCup();
                 CreateCustomers();
             }
@@ -74,6 +74,7 @@ namespace LemonadeStand_3DayStarter
             if(num <= chance)
             {
                 day.customer.willBuy = true;
+                BuyLemonade();
             }
             else
             {
@@ -157,15 +158,15 @@ namespace LemonadeStand_3DayStarter
                 }
             }
         }
-        public void MakePitcher(Inventory inventory, Recipe recipe)
+        public void MakePitcher()
         {
-            while (player.recipe.cupsPerPitcher == 0 && inventory.lemons.Count > recipe.amountOfLemons && inventory.sugarCubes.Count > recipe.amountOfSugarCubes &&
-            inventory.iceCubes.Count > recipe.amountOfIceCubes && inventory.cups.Count > recipe.amountOfCups)
+            while (player.recipe.cupsPerPitcher == 0 && inventory.lemons.Count > player.recipe.amountOfLemons && inventory.sugarCubes.Count > player.recipe.amountOfSugarCubes &&
+            inventory.iceCubes.Count > player.recipe.amountOfIceCubes && inventory.cups.Count > player.recipe.cupsPerPitcher)
             {
-                inventory.RemoveLemonsFromInventory(new Recipe());
-                inventory.RemoveSugarCubesFromInventory(new Recipe());
-                inventory.RemoveIceCubesFromInventory(new Recipe());
-                inventory.RemoveCupsFromInventory(new Recipe());
+                inventory.RemoveLemonsFromInventory(player.recipe = new Recipe());
+                inventory.RemoveSugarCubesFromInventory(player.recipe = new Recipe());
+                inventory.RemoveIceCubesFromInventory(player.recipe = new Recipe());
+                inventory.RemoveCupsFromInventory(player.recipe = new Recipe());
             }
            
         }  
@@ -210,6 +211,18 @@ namespace LemonadeStand_3DayStarter
                     Customer customer = new Customer();
                     CustomerResponse();
                 }
+            }
+        }
+        public void BuyLemonade()
+        {
+            if (day.customer.willBuy == true)
+            {
+                double transactionGains = player.recipe.pricePerCup;
+                player.wallet.AddMoneyForSales(transactionGains);
+            }
+            else
+            {
+
             }
         }
     }

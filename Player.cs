@@ -42,11 +42,6 @@ namespace LemonadeStand_3DayStarter
             int numberOfIceCubes = UserInterface.ChooseRecipeRatio("ice cubes");
             recipe.amountOfSugarCubes = numberOfIceCubes;
         }
-        public void PickCups()
-        {
-            int numberOfCups = UserInterface.ChooseRecipeRatio("cups");
-            recipe.amountOfCups = numberOfCups;
-        }
         public double ChangePricePerCup()
         {
             recipe.pricePerCup = UserInterface.ChoosePricePerCup();

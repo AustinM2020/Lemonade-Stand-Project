@@ -16,10 +16,6 @@ namespace LemonadeStand_3DayStarter
             {
                 return money;
             }
-            set
-            {
-                money = value;
-            }
         }
 
         public Wallet()
@@ -30,6 +26,14 @@ namespace LemonadeStand_3DayStarter
         public void PayMoneyForItems(double transactionAmount)
         {
             money -= transactionAmount;
+        }
+        public void AddMoneyForSales(double transactionGains)
+        {
+            money += transactionGains;
+        }
+        public void DisplayWallet()
+        {
+            Console.WriteLine("Curremt wallet ammount = $" + money);
         }
     }
 }
