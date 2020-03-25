@@ -41,23 +41,33 @@ namespace LemonadeStand_3DayStarter
                 Console.WriteLine("-----------------------------------------------------------------------------");
                 player.wallet.DisplayWallet();
                 day.weather.PickWeather();
+                Console.WriteLine();
                 Console.WriteLine("Lemon Supply: " + player.inventory.lemons.Count);
                 Console.WriteLine("Sugar Supply: " + player.inventory.sugarCubes.Count);
                 Console.WriteLine("Ice Cube Supply: " + player.inventory.iceCubes.Count);
                 Console.WriteLine("Cup Supply: " + player.inventory.cups.Count);
+                Console.WriteLine();
                 store.SellLemons(player);
+                Console.WriteLine();
                 player.wallet.DisplayWallet();
                 store.SellSugarCubes(player);
+                Console.WriteLine();
                 player.wallet.DisplayWallet();
                 store.SellIceCubes(player);
+                Console.WriteLine();
                 player.wallet.DisplayWallet();
                 store.SellCups(player);
+                Console.WriteLine();
                 player.wallet.DisplayWallet();
                 player.PickLemons();
+                Console.WriteLine();
                 player.PickSugarCubes();
+                Console.WriteLine();
                 player.PickIceCubes();
+                Console.WriteLine();
                 player.ChangePricePerCup();
                 MakePitcher();
+                Console.WriteLine("press enter to show customer reactions");
                 CreateCustomers();
                 Console.WriteLine("----------------------------------------------------------------------------");
             }
@@ -129,7 +139,7 @@ namespace LemonadeStand_3DayStarter
             }
             else if (day.weather.condition == "Rainy")
             {
-                chance += 4;
+                chance += 5;
             }
         }       
         public void PriceResponse()
@@ -233,7 +243,7 @@ namespace LemonadeStand_3DayStarter
                 {
                     day.customer = new Customer();
                     CustomerResponse();
-                    Console.WriteLine();
+                    Console.ReadLine();
                 }
             }
             else if(day.weather.temp > 80 && canBuyLemonade == true)
@@ -242,7 +252,7 @@ namespace LemonadeStand_3DayStarter
                 {
                     day.customer= new Customer();
                     CustomerResponse();
-                    Console.WriteLine();
+                    Console.ReadLine();
                 }
             }
             else if(day.weather.temp > 70 && canBuyLemonade == true)
@@ -251,7 +261,7 @@ namespace LemonadeStand_3DayStarter
                 {
                     day.customer = new Customer();
                     CustomerResponse();
-                    Console.WriteLine();
+                    Console.ReadLine();
                 }
             }
             else if(day.weather.temp > 60 && canBuyLemonade == true)
@@ -260,7 +270,7 @@ namespace LemonadeStand_3DayStarter
                 {
                     day.customer = new Customer();
                     CustomerResponse();
-                    Console.WriteLine();
+                    Console.ReadLine();
                 }
             }
             else if(day.weather.temp > 55 && canBuyLemonade == true)
@@ -269,7 +279,7 @@ namespace LemonadeStand_3DayStarter
                 {
                     day.customer = new Customer();
                     CustomerResponse();
-                    Console.WriteLine();
+                    Console.ReadLine();
                 }
             }
         }
