@@ -29,18 +29,16 @@ namespace LemonadeStand_3DayStarter
 
         public void PickLemons()
         {
-            int numberOfLemons = UserInterface.ChooseRecipeRatio("lemons");
-            recipe.amountOfLemons = numberOfLemons;
+            recipe.amountOfLemons = UserInterface.ChooseRecipeRatio("lemons");
         }
         public void PickSugarCubes()
         {
-            int numberOfSugarCubes = UserInterface.ChooseRecipeRatio("sugar cubes");
-            recipe.amountOfSugarCubes = numberOfSugarCubes;
+            recipe.amountOfSugarCubes = UserInterface.ChooseRecipeRatio("sugar");
+                
         }
         public void PickIceCubes()
         {
-            int numberOfIceCubes = UserInterface.ChooseRecipeRatio("ice cubes");
-            recipe.amountOfSugarCubes = numberOfIceCubes;
+            recipe.amountOfIceCubes = UserInterface.ChooseRecipeRatio("ice cubes");            
         }
         public double ChangePricePerCup()
         {

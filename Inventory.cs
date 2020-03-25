@@ -61,40 +61,46 @@ namespace LemonadeStand_3DayStarter
                 cups.Add(cup);
             }
         }
-        public void RemoveLemonsFromInventory(Recipe recipe)
+        public void RemoveLemonsFromInventory(int numberOfLemons)
         {
-            for (int i = 0; i < recipe.amountOfLemons; i++)
+            for (int i = 0; i < numberOfLemons; i++)
             {
-                Lemon lemon = new Lemon();
-                lemons.Remove(lemon);
+                lemons.RemoveAt(i);
             }
         }
 
-        public void RemoveSugarCubesFromInventory(Recipe recipe)
+        public void RemoveSugarCubesFromInventory(int numberOfSugar)
         {
-            for (int i = 0; i < recipe.amountOfSugarCubes; i++)
+            for (int i = 0; i < numberOfSugar; i++)
             {
-                SugarCube sugarCube = new SugarCube();
-                sugarCubes.Remove(sugarCube);
+                sugarCubes.RemoveAt(i);
             }
         }
 
-        public void RemoveIceCubesFromInventory(Recipe recipe)
+        public void RemoveIceCubesFromInventory(int numberOfIceCubes)
         {
-            for (int i = 0; i < recipe.amountOfIceCubes; i++)
+            for (int i = 0; i < numberOfIceCubes; i++)
             {
-                IceCube iceCube = new IceCube();
-                iceCubes.Remove(iceCube);
+                iceCubes.RemoveAt(i);
             }
         }
 
-        public void RemoveCupsFromInventory(Recipe recipe)
+        public void RemoveCupsFromInventory(int numberOfCups)
         {
-            for (int i = 0; i < recipe.cupsPerPitcher; i++)
+            for (int i = 0; i < numberOfCups; i++)
             {
-                Cup cup = new Cup();
-                cups.Remove(cup);
+                cups.RemoveAt(i);
             }
+        }
+        public void RemoveAllIceCubes()
+        {
+            iceCubes.Clear();
+            Console.WriteLine("Your Ice Cubes Melted!");
+        }
+        public void RemoveAllLemons()
+        {
+            lemons.Clear();
+            Console.WriteLine("Your Lemons Went Bad");
         }
     }
 }

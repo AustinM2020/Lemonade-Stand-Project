@@ -13,6 +13,7 @@ namespace LemonadeStand_3DayStarter
         Player player;
         Store store;
         public int chance;
+        public bool canBuyLemonade = true;
         int numberOfDays = 7;
         public int num;
         public Game()
@@ -28,15 +29,29 @@ namespace LemonadeStand_3DayStarter
                 day = new Day();
                 player.wallet.DisplayWallet();
                 day.weather.PickWeather();
+                Console.WriteLine("Lemon Supply: " + player.inventory.lemons.Count);
+                Console.WriteLine("Sugar Suppy: " + player.inventory.sugarCubes.Count);
+                Console.WriteLine("Ice Cube Supply: " + player.inventory.iceCubes.Count);
+                Console.WriteLine("Cup Supply: " + player.inventory.cups.Count);
                 store.SellLemons(player);
+                player.wallet.DisplayWallet();
                 store.SellSugarCubes(player);
+                player.wallet.DisplayWallet();
                 store.SellIceCubes(player);
+                player.wallet.DisplayWallet();
                 store.SellCups(player);
+                player.wallet.DisplayWallet();
                 player.PickLemons();
                 player.PickSugarCubes();
                 player.PickIceCubes();
                 player.ChangePricePerCup();
+                MakePitcher();
                 CreateCustomers();
+                player.inventory.RemoveAllIceCubes();
+                if(i == 1 || i == 3 || i == 5 || i == 7)
+                {
+                    player.inventory.RemoveAllLemons();
+                }
             }
         }
         public void TempResponse()
@@ -71,10 +86,15 @@ namespace LemonadeStand_3DayStarter
             WeatherResponse();
             MoneyResponse();
             num = random.Next(1, 51);
-            if(num <= chance)
+            if(num <= chance && canBuyLemonade == true)
             {
                 day.customer.willBuy = true;
                 BuyLemonade();
+                player.wallet.DisplayWallet();
+                if(player.pitcher.cupsLeftInPitcher == 0)
+                {
+                    MakePitcher();
+                }
             }
             else
             {
@@ -160,13 +180,19 @@ namespace LemonadeStand_3DayStarter
         }
         public void MakePitcher()
         {
-            while (player.recipe.cupsPerPitcher == 0 && inventory.lemons.Count > player.recipe.amountOfLemons && inventory.sugarCubes.Count > player.recipe.amountOfSugarCubes &&
-            inventory.iceCubes.Count > player.recipe.amountOfIceCubes && inventory.cups.Count > player.recipe.cupsPerPitcher)
+            if(player.inventory.lemons.Count > player.recipe.amountOfLemons && player.inventory.sugarCubes.Count > player.recipe.amountOfSugarCubes &&
+            player.inventory.iceCubes.Count > player.recipe.amountOfIceCubes && player.inventory.cups.Count > player.recipe.cupsPerPitcher)
             {
-                inventory.RemoveLemonsFromInventory(player.recipe = new Recipe());
-                inventory.RemoveSugarCubesFromInventory(player.recipe = new Recipe());
-                inventory.RemoveIceCubesFromInventory(player.recipe = new Recipe());
-                inventory.RemoveCupsFromInventory(player.recipe = new Recipe());
+                player.inventory.RemoveLemonsFromInventory(player.recipe.amountOfLemons);
+                player.inventory.RemoveSugarCubesFromInventory(player.recipe.amountOfSugarCubes);
+                player.inventory.RemoveIceCubesFromInventory(player.recipe.amountOfIceCubes);
+                player.inventory.RemoveCupsFromInventory(player.recipe.cupsPerPitcher);
+                player.pitcher.cupsLeftInPitcher = 10;
+            }
+            else
+            {
+                Console.WriteLine("SOLD OUT");
+                canBuyLemonade = false;
             }
            
         }  
@@ -219,6 +245,7 @@ namespace LemonadeStand_3DayStarter
             {
                 double transactionGains = player.recipe.pricePerCup;
                 player.wallet.AddMoneyForSales(transactionGains);
+                player.pitcher.cupsLeftInPitcher--;
             }
             else
             {
