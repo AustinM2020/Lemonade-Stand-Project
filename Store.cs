@@ -26,6 +26,7 @@ namespace LemonadeStand_3DayStarter
         // member methods (CAN DO)
         public void SellLemons(Player player)
         {
+            Console.WriteLine("The price per lemon: " + pricePerLemon);
             int lemonsToPurchase = UserInterface.GetNumberOfItems("lemons");
             double transactionAmount = CalculateTransactionAmount(lemonsToPurchase, pricePerLemon);
             if(player.wallet.Money >= transactionAmount)
@@ -33,21 +34,33 @@ namespace LemonadeStand_3DayStarter
                 player.wallet.PayMoneyForItems(transactionAmount);
                 player.inventory.AddLemonsToInventory(lemonsToPurchase);
             }
+            else
+            {
+                Console.WriteLine("Not enough money for purchase!");
+                SellLemons(player);
+            }
         }
 
         public void SellSugarCubes(Player player)
         {
-            int sugarToPurchase = UserInterface.GetNumberOfItems("sugar");
+            Console.WriteLine("The price per sugar cube: " + pricePerSugarCube);
+            int sugarToPurchase = UserInterface.GetNumberOfItems("sugar cubes");
             double transactionAmount = CalculateTransactionAmount(sugarToPurchase, pricePerSugarCube);
             if(player.wallet.Money >= transactionAmount)
             {
                 PerformTransaction(player.wallet, transactionAmount);
                 player.inventory.AddSugarCubesToInventory(sugarToPurchase);
             }
+            else
+            {
+                Console.WriteLine("Not enough money for purchase!");
+                SellSugarCubes(player);
+            }
         }
 
         public void SellIceCubes(Player player)
         {
+            Console.WriteLine("The price per ice cube: " + pricePerIceCube);
             int iceCubesToPurchase = UserInterface.GetNumberOfItems("ice cubes");
             double transactionAmount = CalculateTransactionAmount(iceCubesToPurchase, pricePerIceCube);
             if(player.wallet.Money >= transactionAmount)
@@ -55,16 +68,27 @@ namespace LemonadeStand_3DayStarter
                 PerformTransaction(player.wallet, transactionAmount);
                 player.inventory.AddIceCubesToInventory(iceCubesToPurchase);
             }
+            else
+            {
+                Console.WriteLine("Not enough money for purchase!");
+                SellIceCubes(player);
+            }
         }
 
         public void SellCups(Player player)
         {
+            Console.WriteLine("The price per cup: " + pricePerCup);
             int cupsToPurchase = UserInterface.GetNumberOfItems("cups");
             double transactionAmount = CalculateTransactionAmount(cupsToPurchase, pricePerCup);
             if(player.wallet.Money >= transactionAmount)
             {
                 PerformTransaction(player.wallet, transactionAmount);
                 player.inventory.AddCupsToInventory(cupsToPurchase);
+            }
+            else
+            {
+                Console.WriteLine("Not enough money for purchase!");
+                SellCups(player);
             }
         }
 

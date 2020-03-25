@@ -17,7 +17,7 @@ namespace LemonadeStand_3DayStarter
         {
             names = new List<string>() { "Mike", "Finn", "Sean", "Jamie", "Katie", "Auburn", "Charles", "King", 
                 "Christine", "Isaiah", "Chris", "Jack", "Cj", "Frank", "Aaron", "Lynda", "Jess"  };
-            name = names[random.Next(0, 5)];
+            name = names[random.Next(0, names.Count)];
         }
 
         public string GenerateCustomer()

@@ -26,15 +26,17 @@ namespace LemonadeStand_3DayStarter
         }
 
         // member methods (CAN DO)
-
+        public void ChooseName()
+        {
+            name = UserInterface.GetName();
+        }
         public void PickLemons()
         {
             recipe.amountOfLemons = UserInterface.ChooseRecipeRatio("lemons");
         }
         public void PickSugarCubes()
         {
-            recipe.amountOfSugarCubes = UserInterface.ChooseRecipeRatio("sugar");
-                
+            recipe.amountOfSugarCubes = UserInterface.ChooseRecipeRatio("sugar"); 
         }
         public void PickIceCubes()
         {

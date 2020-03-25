@@ -33,7 +33,11 @@ namespace LemonadeStand_3DayStarter
         }
         public void DisplayWallet()
         {
-            Console.WriteLine("Curremt wallet ammount = $" + money);
+            Console.WriteLine("Curremt wallet ammount: $" + money);
+        }
+        public void DisplayFinalProfits()
+        {
+            Console.WriteLine("Final Profits: " + (money - 20));
         }
     }
 }

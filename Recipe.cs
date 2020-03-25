@@ -11,6 +11,10 @@ namespace LemonadeStand_3DayStarter
         public int amountOfLemons;
         public int amountOfSugarCubes;
         public int amountOfIceCubes;
+        public int bestAmountOfLemons;
+        public int bestAmountOfSugarCubes;
+        public int bestAmountOfIceCubes;
+
         public double pricePerCup;
         public int cupsPerPitcher;
         
@@ -18,6 +22,9 @@ namespace LemonadeStand_3DayStarter
         {
             pricePerCup = .25;
             cupsPerPitcher = 10;
+            bestAmountOfLemons = 5;
+            bestAmountOfSugarCubes = 3;
+            bestAmountOfIceCubes = 20;
         }
     
         

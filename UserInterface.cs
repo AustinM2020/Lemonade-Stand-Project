@@ -34,17 +34,29 @@ namespace LemonadeStand_3DayStarter
 
                 userInputIsAnInteger = Int32.TryParse(Console.ReadLine(), out quantity);
             }
+            if(quantity <= 0)
+            {
+                ChooseRecipeRatio(ingredient);
+            }
             return quantity;
         }
         public static double ChoosePricePerCup()
         {
             double maxPrice = .50;
             double price;
+            Console.WriteLine("What Price would you like each cup to be? The max price is " + maxPrice);
+            price = Convert.ToDouble(Console.ReadLine());
+            if(price <= 0 || price > maxPrice)
             {
-                Console.WriteLine("What Price would you like each cup to be? The max prie is " + maxPrice);
-                price = Convert.ToDouble(Console.ReadLine());
+                ChoosePricePerCup();
             }
             return price;
+        }
+        public static string GetName()
+        {
+            Console.WriteLine("Whats your name?");
+            string name = Console.ReadLine();
+            return name;
         }
     }
 }
