@@ -68,6 +68,7 @@ namespace LemonadeStand_3DayStarter
                 player.ChangePricePerCup();
                 MakePitcher();
                 Console.WriteLine("press enter to show customer reactions");
+                Console.ReadLine();
                 CreateCustomers();
                 Console.WriteLine("----------------------------------------------------------------------------");
             }
@@ -237,45 +238,45 @@ namespace LemonadeStand_3DayStarter
         }  
         public void CreateCustomers()
         {
-            if(day.weather.temp > 90 && canBuyLemonade == true)
+            if(day.weather.temp > 90)
             {
-                for(int i = 0; i < random.Next(120, 170); i++)
+                for(int i = 0; i < random.Next(120, 170) && canBuyLemonade == true; i++)
                 {
                     day.customer = new Customer();
                     CustomerResponse();
                     Console.ReadLine();
                 }
             }
-            else if(day.weather.temp > 80 && canBuyLemonade == true)
+            else if(day.weather.temp > 80)
             {
-                for (int i = 0; i < random.Next(100, 150); i++)
+                for (int i = 0; i < random.Next(100, 150) && canBuyLemonade == true; i++)
                 {
                     day.customer= new Customer();
                     CustomerResponse();
                     Console.ReadLine();
                 }
             }
-            else if(day.weather.temp > 70 && canBuyLemonade == true)
+            else if(day.weather.temp > 70)
             {
-                for (int i = 0; i < random.Next(80, 120); i++)
+                for (int i = 0; i < random.Next(80, 120) && canBuyLemonade == true; i++)
                 {
                     day.customer = new Customer();
                     CustomerResponse();
                     Console.ReadLine();
                 }
             }
-            else if(day.weather.temp > 60 && canBuyLemonade == true)
+            else if(day.weather.temp > 60)
             {
-                for(int i = 0; i < random.Next(60, 100); i++)
+                for(int i = 0; i < random.Next(60, 100) && canBuyLemonade == true; i++)
                 {
                     day.customer = new Customer();
                     CustomerResponse();
                     Console.ReadLine();
                 }
             }
-            else if(day.weather.temp > 55 && canBuyLemonade == true)
+            else if(day.weather.temp > 55)
             {
-                for(int i = 0; i < random.Next(50, 80); i++)
+                for(int i = 0; i < random.Next(50, 80) && canBuyLemonade == true; i++)
                 {
                     day.customer = new Customer();
                     CustomerResponse();

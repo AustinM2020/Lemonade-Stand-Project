@@ -26,7 +26,7 @@ namespace LemonadeStand_3DayStarter
         // member methods (CAN DO)
         public void SellLemons(Player player)
         {
-            Console.WriteLine("The price per lemon: " + pricePerLemon);
+            Console.WriteLine("The price per lemon: " + pricePerLemon + "¢");
             int lemonsToPurchase = UserInterface.GetNumberOfItems("lemons");
             double transactionAmount = CalculateTransactionAmount(lemonsToPurchase, pricePerLemon);
             if(player.wallet.Money >= transactionAmount)
@@ -43,7 +43,7 @@ namespace LemonadeStand_3DayStarter
 
         public void SellSugarCubes(Player player)
         {
-            Console.WriteLine("The price per sugar cube: " + pricePerSugarCube);
+            Console.WriteLine("The price per sugar cube: " + pricePerSugarCube + "¢");
             int sugarToPurchase = UserInterface.GetNumberOfItems("sugar cubes");
             double transactionAmount = CalculateTransactionAmount(sugarToPurchase, pricePerSugarCube);
             if(player.wallet.Money >= transactionAmount)
@@ -60,7 +60,7 @@ namespace LemonadeStand_3DayStarter
 
         public void SellIceCubes(Player player)
         {
-            Console.WriteLine("The price per ice cube: " + pricePerIceCube);
+            Console.WriteLine("The price per ice cube: " + pricePerIceCube + "¢");
             int iceCubesToPurchase = UserInterface.GetNumberOfItems("ice cubes");
             double transactionAmount = CalculateTransactionAmount(iceCubesToPurchase, pricePerIceCube);
             if(player.wallet.Money >= transactionAmount)
@@ -77,7 +77,7 @@ namespace LemonadeStand_3DayStarter
 
         public void SellCups(Player player)
         {
-            Console.WriteLine("The price per cup: " + pricePerCup);
+            Console.WriteLine("The price per cup: " + pricePerCup + "¢");
             int cupsToPurchase = UserInterface.GetNumberOfItems("cups");
             double transactionAmount = CalculateTransactionAmount(cupsToPurchase, pricePerCup);
             if(player.wallet.Money >= transactionAmount)
